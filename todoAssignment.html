@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            TO_DO LIST APP | AK
+        </title>
+        <link rel="stylesheet" href="todo.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>  
+        <div class="background"> 
+            <div class="to-do-app">
+                <h3>TO-DO LIST <img src="tooodoooicon.png"> </h3>
+                <div class="row">
+                    <input type="text" id="input-box" placeholder="Add a new task">
+                    <button onclick="addTask()">Add</button>
+                </div>
+                <ul id="list-container">
+                   <!-- <li class="checked">Task 1</li>
+                    <li>Task 2</li>
+                    <li>Task 3</li>-->
+                </ul>
+            </div> 
+        </div>  
+        <script>
+            alert("Hello everyone!how are you doing?");
+
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
+function addTask()
+{
+    if(inputBox.value ==='')
+    {
+        alert("You must write something!");     
+    }   
+    else{
+        let li = document.createElement("li");
+        li.innerHTML = inputBox.value;
+        listContainer.appendChild(li);
+        let span = document.createElement("span");
+        span.innerHTML = "&#10008";
+        li.appendChild(span);
+    }
+    inputBox.value = ""
+    saveData();
+}
+
+listContainer.addEventListener("click", function(e)
+{
+    if(e.target.tagName === "LI")
+    {
+        e.target.classList.toggle("checked");
+        saveData();
+    }
+    else if(e.target.tagName === "SPAN")
+    {
+        e.target.parentElement.remove();
+        saveData();
+    }
+},
+false);
+
+function saveData()
+{
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+
+function displayTask()
+{
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+displayTask();
+        </script>   
+    </body> 
+</html>
