@@ -5,20 +5,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.background{
+.container{
     width:100%;
     min-height: 100vh;
     background: linear-gradient(#772e25, #edddd4);
     padding:10px;
+    overflow: hidden;
 }
 
 .to-do-app{
     width:100%;
-    max-width: 540px;
+    max-width: 500px;
     background: #ffffe8;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 35px;
+    position: relative;
 }
 
 .to-do-app h3{
@@ -61,6 +63,13 @@ button{
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+}
+
+.list
+{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height:220px;
 }
 
 ul li{
